@@ -2,6 +2,7 @@ package com.chinalwb.are.styles.toolbar;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -337,6 +338,9 @@ public class ARE_Toolbar extends LinearLayout {
 
 	public ARE_Toolbar(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
+		while (!(context instanceof Activity)) {
+			context = ((ContextWrapper)context).getBaseContext();
+		}
 		this.mContext = (Activity) context;
 		init();
 	}
