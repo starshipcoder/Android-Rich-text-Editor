@@ -92,8 +92,6 @@ public class AREMovementMethod extends ArrowKeyMovementMethod {
             if (mAreClickStrategy != null && clickableSpans != null && clickableSpans.length > 0) {
                 if (clickableSpans[0] instanceof AreAtSpan) {
                     handled = mAreClickStrategy.onClickAt(context, (AreAtSpan) clickableSpans[0]);
-                } else if (clickableSpans[0] instanceof AreImageSpan) {
-                    handled = mAreClickStrategy.onClickImage(context, (AreImageSpan) clickableSpans[0]);
                 } else if (clickableSpans[0] instanceof AreVideoSpan) {
                     handled = mAreClickStrategy.onClickVideo(context, (AreVideoSpan) clickableSpans[0]);
                 } else if (clickableSpans[0] instanceof AreUrlSpan) {

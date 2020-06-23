@@ -30,15 +30,6 @@
             android:background="?attr/colorPrimary">
 
             <ImageView
-                android:id="@+id/rteEmoji"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="5dp"
-                android:src="@drawable/emoji"
-                android:visibility="gone"
-                />
-
-            <ImageView
                 android:id="@+id/rteFontsize"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -61,28 +52,28 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/bold" />
+                android:src="@drawable/ic_baseline_format_bold_24" />
 
             <ImageView
                 android:id="@+id/rteItalic"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/italic" />
+                android:src="@drawable/ic_baseline_format_italic_24" />
 
             <ImageView
                 android:id="@+id/rteUnderline"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/underline" />
+                android:src="@drawable/ic_baseline_format_underlined_24" />
 
             <ImageView
                 android:id="@+id/rteStrikethrough"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/strikethrough" />
+                android:src="@drawable/ic_baseline_format_strikethrough_24" />
 
             <ImageView
                 android:id="@+id/rteHr"

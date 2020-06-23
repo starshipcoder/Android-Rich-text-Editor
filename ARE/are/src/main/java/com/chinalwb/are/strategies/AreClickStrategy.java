@@ -27,15 +27,6 @@ public interface AreClickStrategy {
     boolean onClickAt(Context context, AreAtSpan atSpan);
 
     /**
-     * Do your actions upon span clicking {@link com.chinalwb.are.spans.AreImageSpan}
-     *
-     * @param context
-     * @param imageSpan
-     * @return handled return true; or else return false
-     */
-    boolean onClickImage(Context context, AreImageSpan imageSpan);
-
-    /**
      * Do your actions upon span clicking {@link android.text.style.URLSpan}
      *
      * @param context

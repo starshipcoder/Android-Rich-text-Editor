@@ -3,7 +3,7 @@ package com.chinalwb.are.demo;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,10 +11,7 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
-import com.chinalwb.are.demo.helpers.DemoImageStrategy;
 import com.chinalwb.are.demo.toolitems.ARE_ToolItem_MyBold;
-import com.chinalwb.are.demo.toolitems.ARE_ToolItem_Youtube;
-import com.chinalwb.are.strategies.ImageStrategy;
 import com.chinalwb.are.strategies.VideoStrategy;
 import com.chinalwb.are.styles.toolbar.ARE_ToolbarDefault;
 import com.chinalwb.are.styles.toolbar.IARE_Toolbar;
@@ -23,10 +20,10 @@ import com.chinalwb.are.styles.toolitems.ARE_ToolItem_AlignmentLeft;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_AlignmentRight;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_At;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_BackgroundColor;
+import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Bold;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_FontColor;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_FontSize;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Hr;
-import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Image;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Italic;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Link;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_ListBullet;
@@ -49,7 +46,6 @@ public class ARE_DefaultToolbarActivity extends AppCompatActivity {
 
     private boolean scrollerAtEnd;
 
-    private ImageStrategy imageStrategy = new DemoImageStrategy();
 
     private VideoStrategy mVideoStrategy = new VideoStrategy() {
         @Override
@@ -84,53 +80,48 @@ public class ARE_DefaultToolbarActivity extends AppCompatActivity {
 
     private void initToolbar() {
         mToolbar = this.findViewById(R.id.areToolbar);
-        IARE_ToolItem bold = new ARE_ToolItem_MyBold();
-        IARE_ToolItem youtube = new ARE_ToolItem_Youtube();
+        IARE_ToolItem bold = new ARE_ToolItem_Bold();
         IARE_ToolItem italic = new ARE_ToolItem_Italic();
         IARE_ToolItem underline = new ARE_ToolItem_Underline();
         IARE_ToolItem strikethrough = new ARE_ToolItem_Strikethrough();
-        IARE_ToolItem fontSize = new ARE_ToolItem_FontSize();
+//        IARE_ToolItem fontSize = new ARE_ToolItem_FontSize();
         IARE_ToolItem fontColor = new ARE_ToolItem_FontColor();
-        IARE_ToolItem backgroundColor = new ARE_ToolItem_BackgroundColor();
-        IARE_ToolItem quote = new ARE_ToolItem_Quote();
-        IARE_ToolItem listNumber = new ARE_ToolItem_ListNumber();
-        IARE_ToolItem listBullet = new ARE_ToolItem_ListBullet();
-        IARE_ToolItem hr = new ARE_ToolItem_Hr();
-        IARE_ToolItem link = new ARE_ToolItem_Link();
-        IARE_ToolItem subscript = new ARE_ToolItem_Subscript();
-        IARE_ToolItem superscript = new ARE_ToolItem_Superscript();
-        IARE_ToolItem left = new ARE_ToolItem_AlignmentLeft();
-        IARE_ToolItem center = new ARE_ToolItem_AlignmentCenter();
-        IARE_ToolItem right = new ARE_ToolItem_AlignmentRight();
-        IARE_ToolItem image = new ARE_ToolItem_Image();
-        IARE_ToolItem video = new ARE_ToolItem_Video();
-        IARE_ToolItem at = new ARE_ToolItem_At();
+//        IARE_ToolItem backgroundColor = new ARE_ToolItem_BackgroundColor();
+//        IARE_ToolItem quote = new ARE_ToolItem_Quote();
+//        IARE_ToolItem listNumber = new ARE_ToolItem_ListNumber();
+//        IARE_ToolItem listBullet = new ARE_ToolItem_ListBullet();
+//        IARE_ToolItem hr = new ARE_ToolItem_Hr();
+//        IARE_ToolItem link = new ARE_ToolItem_Link();
+//        IARE_ToolItem subscript = new ARE_ToolItem_Subscript();
+//        IARE_ToolItem superscript = new ARE_ToolItem_Superscript();
+//        IARE_ToolItem left = new ARE_ToolItem_AlignmentLeft();
+//        IARE_ToolItem center = new ARE_ToolItem_AlignmentCenter();
+//        IARE_ToolItem right = new ARE_ToolItem_AlignmentRight();
+//        IARE_ToolItem video = new ARE_ToolItem_Video();
+//        IARE_ToolItem at = new ARE_ToolItem_At();
 
         mToolbar.addToolbarItem(bold);
-        mToolbar.addToolbarItem(youtube);
         mToolbar.addToolbarItem(italic);
         mToolbar.addToolbarItem(underline);
         mToolbar.addToolbarItem(strikethrough);
-        mToolbar.addToolbarItem(fontSize);
+//        mToolbar.addToolbarItem(fontSize);
         mToolbar.addToolbarItem(fontColor);
-        mToolbar.addToolbarItem(backgroundColor);
-        mToolbar.addToolbarItem(quote);
-        mToolbar.addToolbarItem(listNumber);
-        mToolbar.addToolbarItem(listBullet);
-        mToolbar.addToolbarItem(hr);
-        mToolbar.addToolbarItem(link);
-        mToolbar.addToolbarItem(subscript);
-        mToolbar.addToolbarItem(superscript);
-        mToolbar.addToolbarItem(left);
-        mToolbar.addToolbarItem(center);
-        mToolbar.addToolbarItem(right);
-        mToolbar.addToolbarItem(image);
-        mToolbar.addToolbarItem(video);
-        mToolbar.addToolbarItem(at);
+//        mToolbar.addToolbarItem(backgroundColor);
+//        mToolbar.addToolbarItem(quote);
+//        mToolbar.addToolbarItem(listNumber);
+//        mToolbar.addToolbarItem(listBullet);
+//        mToolbar.addToolbarItem(hr);
+//        mToolbar.addToolbarItem(link);
+//        mToolbar.addToolbarItem(subscript);
+//        mToolbar.addToolbarItem(superscript);
+//        mToolbar.addToolbarItem(left);
+//        mToolbar.addToolbarItem(center);
+//        mToolbar.addToolbarItem(right);
+//        mToolbar.addToolbarItem(video);
+//        mToolbar.addToolbarItem(at);
 
         mEditText = this.findViewById(R.id.arEditText);
         mEditText.setToolbar(mToolbar);
-        mEditText.setImageStrategy(imageStrategy);
         mEditText.setVideoStrategy(mVideoStrategy);
 
 

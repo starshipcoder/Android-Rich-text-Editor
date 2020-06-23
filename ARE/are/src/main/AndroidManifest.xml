@@ -13,11 +13,6 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/AppTheme" />
         <activity android:name=".strategies.defaults.DefaultProfileActivity" />
-        <activity
-            android:name=".strategies.defaults.DefaultImagePreviewActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_default_image_preview"
-            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>

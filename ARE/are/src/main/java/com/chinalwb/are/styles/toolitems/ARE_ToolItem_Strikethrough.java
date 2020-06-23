@@ -52,7 +52,7 @@ public class ARE_ToolItem_Strikethrough extends ARE_ToolItem_Abstract {
             int size = Util.getPixelByDp(context, 40);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
             imageView.setLayoutParams(params);
-            imageView.setImageResource(R.drawable.strikethrough);
+            imageView.setImageResource(R.drawable.ic_baseline_format_strikethrough_24);
             imageView.bringToFront();
             mToolItemView = imageView;
         }

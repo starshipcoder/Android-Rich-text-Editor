@@ -3,7 +3,7 @@ package com.chinalwb.are.demo;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,7 +24,6 @@ import com.chinalwb.are.styles.toolitems.ARE_ToolItem_AlignmentRight;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_At;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Bold;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Hr;
-import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Image;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Italic;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Link;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_ListBullet;
@@ -127,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 "    <p style=\"text-align:start;\"><hr /> </p>\n" +
                 "    <p style=\"text-align:start;\">Text <span style=\"font-size:32px\";>SIZE </span><span style=\"font-size:18px\";><span style=\"font-size:21px\";>normal</span></span></p>\n" +
                 "    <br>\n" +
-                "    <p style=\"text-align:center;\"><img src=\"emoji|" + R.drawable.wx_d_8 + "\"></p>\n" +
+                "    <p style=\"text-align:center;\"><img src=\"emoji|" + R.drawable.at + "\"></p>\n" +
                 "    <p style=\"text-align:start;\">Image:</p>\n" +
                 "    <p style=\"text-align:start;\"><img src=\"http://d.hiphotos.baidu.com/image/pic/item/6159252dd42a2834171827b357b5c9ea14cebfcf.jpg\" /></p>\n" +
                 "    <p style=\"text-align:start;\"></p>\n" +
@@ -180,7 +179,6 @@ public class MainActivity extends AppCompatActivity {
         IARE_ToolItem left = new ARE_ToolItem_AlignmentLeft();
         IARE_ToolItem center = new ARE_ToolItem_AlignmentCenter();
         IARE_ToolItem right = new ARE_ToolItem_AlignmentRight();
-        IARE_ToolItem image = new ARE_ToolItem_Image();
         IARE_ToolItem video = new ARE_ToolItem_Video();
         IARE_ToolItem at = new ARE_ToolItem_At();
         mToolbar.addToolbarItem(bold);
@@ -197,7 +195,6 @@ public class MainActivity extends AppCompatActivity {
         mToolbar.addToolbarItem(left);
         mToolbar.addToolbarItem(center);
         mToolbar.addToolbarItem(right);
-        mToolbar.addToolbarItem(image);
         mToolbar.addToolbarItem(video);
         mToolbar.addToolbarItem(at);
 

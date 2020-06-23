@@ -1,7 +1,7 @@
 package com.chinalwb.are.demo
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.chinalwb.are.AREditor
 import kotlinx.android.synthetic.main.activity_are__multi_instance.*

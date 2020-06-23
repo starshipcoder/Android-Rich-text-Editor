@@ -4,20 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.support.v4.widget.NestedScrollView;
+import androidx.core.widget.NestedScrollView;
 import android.text.Editable;
 import android.text.Spanned;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 
 import com.chinalwb.are.android.inner.Html;
-import com.chinalwb.are.render.AreImageGetter;
 import com.chinalwb.are.render.AreTagHandler;
 import com.chinalwb.are.strategies.AtStrategy;
-import com.chinalwb.are.strategies.ImageStrategy;
 import com.chinalwb.are.strategies.VideoStrategy;
 import com.chinalwb.are.styles.toolbar.ARE_Toolbar;
 
@@ -161,7 +158,6 @@ public class AREditor extends RelativeLayout {
     private void initGlobal() {
         this.mToolbar = new ARE_Toolbar(mContext);
         this.mToolbar.setId(R.id.are_toolbar);
-        this.mToolbar.setUseEmoji(mUseEmoji);
 
         this.mAreScrollView = new NestedScrollView(mContext);
 	    //修复点击空白处无法拉起键盘的BUG：设置下面的属性后,EditText会充满整个NestedScrollView。
@@ -265,9 +261,8 @@ public class AREditor extends RelativeLayout {
      */
     public void fromHtml(String html) {
         Html.sContext = mContext;
-        Html.ImageGetter imageGetter = new AreImageGetter(mContext, this.mAre);
         Html.TagHandler tagHandler = new AreTagHandler();
-        Spanned spanned = Html.fromHtml(html, Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH, imageGetter, tagHandler);
+        Spanned spanned = Html.fromHtml(html, Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH, null, tagHandler);
         AREditText.stopMonitor();
         this.mAre.getEditableText().append(spanned);
         AREditText.startMonitor();
@@ -340,10 +335,6 @@ public class AREditor extends RelativeLayout {
 
     public void setVideoStrategy(VideoStrategy videoStrategy) {
         this.mAre.setVideoStrategy(videoStrategy);
-    }
-
-    public void setImageStrategy(ImageStrategy imageStrategy) {
-        this.mAre.setImageStrategy(imageStrategy);
     }
 
     /**
