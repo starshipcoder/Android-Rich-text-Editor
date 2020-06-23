@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -21,6 +22,7 @@ import android.text.Layout;
 import android.text.Selection;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
@@ -153,6 +155,9 @@ public class Util {
     public static int getPixelByDp(Context context, int dp) {
         int pixels = dp;
         DisplayMetrics displayMetrics = new DisplayMetrics();
+        while (!(context instanceof Activity)) {
+            context = ((ContextWrapper)context).getBaseContext();
+        }
         ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         pixels = (int) (displayMetrics.density * dp + 0.5);
         return pixels;
@@ -235,7 +240,7 @@ public class Util {
         //draw fg into
         cv.drawBitmap(foreground, fgLeft, fgTop, null);
         //save all clip
-        cv.save(Canvas.ALL_SAVE_FLAG);
+        cv.save();
         //store
         cv.restore();
         return newBitmap;

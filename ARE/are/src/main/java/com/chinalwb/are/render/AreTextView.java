@@ -1,8 +1,8 @@
 package com.chinalwb.are.render;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatTextView;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.text.Spanned;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -67,9 +67,8 @@ public class AreTextView extends AppCompatTextView {
 
     private Spanned getSpanned(String html) {
         Html.sContext = mContext;
-        Html.ImageGetter imageGetter = new AreImageGetter(mContext, this);
         Html.TagHandler tagHandler = new AreTagHandler();
-        return Html.fromHtml(html, Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH, imageGetter, tagHandler);
+        return Html.fromHtml(html, Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH, null, tagHandler);
     }
 
     /**

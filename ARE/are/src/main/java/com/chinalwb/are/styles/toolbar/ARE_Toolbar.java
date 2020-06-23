@@ -25,17 +25,14 @@ import com.chinalwb.are.activities.Are_VideoPlayerActivity;
 import com.chinalwb.are.colorpicker.ColorPickerListener;
 import com.chinalwb.are.colorpicker.ColorPickerView;
 import com.chinalwb.are.models.AtItem;
-import com.chinalwb.are.spans.AreImageSpan;
 import com.chinalwb.are.styles.ARE_Alignment;
 import com.chinalwb.are.styles.ARE_At;
 import com.chinalwb.are.styles.ARE_BackgroundColor;
 import com.chinalwb.are.styles.ARE_Bold;
-import com.chinalwb.are.styles.ARE_Emoji;
 import com.chinalwb.are.styles.ARE_FontColor;
 import com.chinalwb.are.styles.ARE_FontSize;
 import com.chinalwb.are.styles.ARE_Fontface;
 import com.chinalwb.are.styles.ARE_Hr;
-import com.chinalwb.are.styles.ARE_Image;
 import com.chinalwb.are.styles.ARE_IndentLeft;
 import com.chinalwb.are.styles.ARE_IndentRight;
 import com.chinalwb.are.styles.ARE_Italic;
@@ -94,11 +91,6 @@ public class ARE_Toolbar extends LinearLayout {
 	 * Video Style
 	 */
 	private ARE_Video mVideoStyle;
-
-	/**
-	 * Emoji Style
-	 */
-	private ARE_Emoji mEmojiStyle;
 
 	/**
 	 * Font-size Style
@@ -199,11 +191,6 @@ public class ARE_Toolbar extends LinearLayout {
 	 * Align right.
 	 */
 	private ARE_Alignment mAlignRight;
-
-	/**
-	 * Insert image style.
-	 */
-	private ARE_Image mImageStyle;
 
 	/**
 	 * At @ mention.
@@ -369,8 +356,6 @@ public class ARE_Toolbar extends LinearLayout {
 
 	private void initViews() {
 
-		this.mEmojiImageView = this.findViewById(R.id.rteEmoji);
-
 		this.mFontsizeImageView = this.findViewById(R.id.rteFontsize);
 
 		this.mFontfaceImageView = this.findViewById(R.id.rteFontface);
@@ -427,7 +412,6 @@ public class ARE_Toolbar extends LinearLayout {
 	 *
 	 */
 	private void initStyles() {
-		this.mEmojiStyle = new ARE_Emoji(this.mEmojiImageView, this);
 		this.mFontsizeStyle = new ARE_FontSize(this.mFontsizeImageView, this);
 		this.mFontfaceStyle = new ARE_Fontface(this.mFontfaceImageView, this);
 		this.mBoldStyle = new ARE_Bold(this.mBoldImageView);
@@ -448,11 +432,9 @@ public class ARE_Toolbar extends LinearLayout {
 		this.mAlignLeft = new ARE_Alignment(this.mRteAlignLeft, Alignment.ALIGN_NORMAL, this);
 		this.mAlignCenter = new ARE_Alignment(this.mRteAlignCenter, Alignment.ALIGN_CENTER, this);
 		this.mAlignRight = new ARE_Alignment(this.mRteAlignRight, Alignment.ALIGN_OPPOSITE, this);
-		this.mImageStyle = new ARE_Image(this.mRteInsertImage);
 		this.mVideoStyle = new ARE_Video(this.mRteInsertVideo);
 		this.mAtStyle = new ARE_At(this);
 
-		this.mStylesList.add(this.mEmojiStyle);
 		this.mStylesList.add(this.mFontsizeStyle);
 		this.mStylesList.add(this.mFontfaceStyle);
 		this.mStylesList.add(this.mBoldStyle);
@@ -473,17 +455,8 @@ public class ARE_Toolbar extends LinearLayout {
 		this.mStylesList.add(this.mAlignLeft);
 		this.mStylesList.add(this.mAlignCenter);
 		this.mStylesList.add(this.mAlignRight);
-		this.mStylesList.add(this.mImageStyle);
 		this.mStylesList.add(this.mVideoStyle);
 		this.mStylesList.add(this.mAtStyle);
-	}
-
-	public void setUseEmoji(boolean useEmoji) {
-		if (useEmoji) {
-			mEmojiImageView.setVisibility(View.VISIBLE);
-		} else {
-			mEmojiImageView.setVisibility(View.GONE);
-		}
 	}
 
 	public void setEditText(AREditText editText) {
@@ -504,7 +477,6 @@ public class ARE_Toolbar extends LinearLayout {
 		this.mFontColorStyle.setEditText(this.mEditText);
 		this.mBackgroundColoStyle.setEditText(this.mEditText);
 		this.mLinkStyle.setEditText(this.mEditText);
-		this.mImageStyle.setEditText(this.mEditText);
 		this.mVideoStyle.setEditText(this.mEditText);
 		this.mAtStyle.setEditText(this.mEditText);
 	}
@@ -551,10 +523,6 @@ public class ARE_Toolbar extends LinearLayout {
 		return mBackgroundColoStyle;
 	}
 
-	public ARE_Image getImageStyle() {
-		return mImageStyle;
-	}
-
 	public List<IARE_Style> getStylesList() {
 		return this.mStylesList;
 	}
@@ -592,12 +560,8 @@ public class ARE_Toolbar extends LinearLayout {
 	 */
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		mEmojiPanelContainer.setVisibility(View.GONE);
-		mEmojiShownNow = false;
 		if (resultCode == Activity.RESULT_OK) {
-			if (REQ_IMAGE == requestCode) {
-				Uri uri = data.getData();
-				this.mImageStyle.insertImage(uri, AreImageSpan.ImageType.URI);
-			} else if (REQ_AT == requestCode) {
+		     if (REQ_AT == requestCode) {
 				AtItem atItem = (AtItem) data.getSerializableExtra(ARE_At.EXTRA_TAG);
 				if (null == atItem) { return; }
 				this.mAtStyle.insertAt(atItem);
@@ -657,136 +621,17 @@ public class ARE_Toolbar extends LinearLayout {
 
 	private void onKeyboardShow() {
 		mKeyboardShownNow = true;
-		toggleEmojiPanel(false);
-		mEmojiShownNow = false;
 		mLayoutDelay = 100;
 	}
 
 	private void onKeyboardHide() {
 		mKeyboardShownNow = false;
-		if (mHideEmojiWhenHideKeyboard) {
-			toggleEmojiPanel(false);
-		} else {
-			this.postDelayed(new Runnable() {
-				@Override
-				public void run() {
-					mHideEmojiWhenHideKeyboard = true;
-				}
-			}, 100);
-		}
 	}
 
 	private int mLayoutDelay = 0;
 	private int mPreviousKeyboardHeight = 0;
 	private boolean mKeyboardShownNow = true;
-	private boolean mEmojiShownNow = false;
-	private boolean mHideEmojiWhenHideKeyboard = true;
 	private int mKeyboardHeight = 0;
-	private View mEmojiPanel;
-
-
-	private void initEmojiPanelHeight(int expectHeight) {
-		int emojiHeight = this.mEmojiPanelContainer.getHeight();
-		if (emojiHeight != expectHeight) {
-			LinearLayout.LayoutParams layoutParams = (LayoutParams) mEmojiPanelContainer.getLayoutParams();
-			layoutParams.height = expectHeight;
-			mEmojiPanelContainer.setLayoutParams(layoutParams);
-			if (mEmojiPanel != null) {
-				LayoutParams emojiPanelLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-				mEmojiPanel.setLayoutParams(emojiPanelLayoutParams);
-				((ViewGroup) mEmojiPanelContainer).addView(mEmojiPanel);
-			}
-			mContext.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-		}
-	}
-
-	public void toggleEmojiPanel(boolean byClickEmoji) {
-		if (mKeyboardShownNow) {
-			if (byClickEmoji) {
-				// Keyboard is shown now
-				// Click emoji icon we should hide keyboard and keep emoji panel open
-
-				// 1. Set keyboard as hide
-				mKeyboardShownNow = false;
-
-				// 2. When hide keyboard, don't need to hide emoji
-				// as we need to open emoji
-				mHideEmojiWhenHideKeyboard = false;
-
-				// 3. Hide keyboard
-				View view = mContext.getCurrentFocus();
-				Util.hideKeyboard(view, mContext);
-
-				// 4. Show emoji
-				initEmojiPanelHeight(mKeyboardHeight);
-				mEmojiPanelContainer.setVisibility(View.VISIBLE);
-
-				// 5. Set emoji is shown now
-				mEmojiShownNow = true;
-
-				// 6. Change emoji icon to keyboard
-				mEmojiImageView.setImageResource(R.drawable.keyboard);
-			} else {
-				// Keyboard is shown now
-				// Toggle emoji panel to make the layout looks well for adjustPan
-
-				// 1. Sets emoji panel to visible so it takes up height
-				mEmojiPanelContainer.setVisibility(View.VISIBLE);
-
-				// 2. Although emoji panel takes up height but it is not shown now
-				// (NOT VISIBLE TO USER, AS KEYBOARD IS BEING SHOWN)
-				mEmojiShownNow = false;
-			}
-		} else {
-			if (byClickEmoji) {
-				// Keyboard is hide, then use clicks emoji
-				// We should consider two cases
-				// 1. keyboard is hidden but emoji is shown
-				// 2. keyboard is hidden and Emoji is hidden too
-
-
-				if (mEmojiShownNow) {
-					// Case 1: keyboard is hidden but emoji is shown
-					// And user clicks emoji icon
-					//
-					// We should show keyboard and hide emoji
-
-					// 1. Set keyboard as shown now
-					mKeyboardShownNow = true;
-
-					// 1.1. Show keyboard
-					View view = getEditText();
-					showKeyboard(view);
-
-					// 2. Set emoji as hide now
-					mEmojiShownNow = false;
-
-					// 3. Change emoji icon to emoji
-					mEmojiImageView.setImageResource(R.drawable.emoji);
-				} else {
-					// Case 2: keyboard is hidden and Emoji is hidden too
-					// And user clicks emoji icon
-					//
-					// We should show emoji panel
-
-					// 1. Show emoji panel
-					initEmojiPanelHeight(mKeyboardHeight);
-					mEmojiPanelContainer.setVisibility(View.VISIBLE);
-					// 1.1 Set emoji panel as shown now
-					mEmojiShownNow = true;
-					// 1.2 Change emoji icon to keyboard
-					mEmojiImageView.setImageResource(R.drawable.keyboard);
-				}
-
-			} else {
-				// User clicks the virtual button to hide keyboard
-				// We should hide emoji panel
-				mEmojiPanelContainer.setVisibility(View.GONE);
-				mEmojiShownNow = false;
-				mEmojiImageView.setImageResource(R.drawable.emoji);
-			}
-		}
-	}
 
 	protected void showKeyboard(View view) {
 		if (view != null) {
@@ -798,9 +643,6 @@ public class ARE_Toolbar extends LinearLayout {
 		}
 	}
 
-	public void setEmojiPanel(View emojiPanel) {
-		mEmojiPanel = emojiPanel;
-	}
     /* -------- END: Keep it at the bottom of the class.. Keyboard and emoji ------------ */
     /* -------- END: Keep it at the bottom of the class.. Keyboard and emoji ------------ */
 }

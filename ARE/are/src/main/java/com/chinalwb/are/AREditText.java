@@ -6,7 +6,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.support.v7.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.Selection;
 import android.text.Spannable;
@@ -25,7 +25,6 @@ import android.view.inputmethod.EditorInfo;
 
 import com.chinalwb.are.android.inner.Html;
 import com.chinalwb.are.events.AREMovementMethod;
-import com.chinalwb.are.render.AreImageGetter;
 import com.chinalwb.are.render.AreTagHandler;
 import com.chinalwb.are.spans.ARE_Clickable_Span;
 import com.chinalwb.are.spans.AreImageSpan;
@@ -33,7 +32,6 @@ import com.chinalwb.are.spans.AreSubscriptSpan;
 import com.chinalwb.are.spans.AreSuperscriptSpan;
 import com.chinalwb.are.spans.AreUnderlineSpan;
 import com.chinalwb.are.strategies.AtStrategy;
-import com.chinalwb.are.strategies.ImageStrategy;
 import com.chinalwb.are.strategies.VideoStrategy;
 import com.chinalwb.are.styles.ARE_Helper;
 import com.chinalwb.are.styles.IARE_Style;
@@ -133,9 +131,8 @@ public class AREditText extends AppCompatEditText {
         String htmlText = itemAt.getHtmlText();
         if (htmlText != null) {
             try {
-                Html.ImageGetter imageGetter = new AreImageGetter(mContext, this);
                 Html.TagHandler tagHandler = new AreTagHandler();
-                CharSequence newText = Html.fromHtml(htmlText, Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH, imageGetter, tagHandler);
+                CharSequence newText = Html.fromHtml(htmlText, Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH, null, tagHandler);
                 if (newText != null) {
                     return newText;
                 }
@@ -394,9 +391,8 @@ public class AREditText extends AppCompatEditText {
      */
     public void fromHtml(String html) {
         Html.sContext = mContext;
-        Html.ImageGetter imageGetter = new AreImageGetter(mContext, this);
         Html.TagHandler tagHandler = new AreTagHandler();
-        Spanned spanned = Html.fromHtml(html, Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH, imageGetter, tagHandler);
+        Spanned spanned = Html.fromHtml(html, Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH, null, tagHandler);
         stopMonitor();
         this.getEditableText().append(spanned);
         startMonitor();
@@ -443,8 +439,4 @@ public class AREditText extends AppCompatEditText {
 	public void setVideoStrategy(VideoStrategy videoStrategy) { mVideoStrategy = videoStrategy; }
 	public VideoStrategy getVideoStrategy() { return mVideoStrategy; }
 
-	// ImageStrategy
-	private ImageStrategy mImageStrategy;
-	public void setImageStrategy(ImageStrategy imageStrategy) { mImageStrategy = imageStrategy; }
-	public ImageStrategy getImageStrategy() { return mImageStrategy; }
 }
