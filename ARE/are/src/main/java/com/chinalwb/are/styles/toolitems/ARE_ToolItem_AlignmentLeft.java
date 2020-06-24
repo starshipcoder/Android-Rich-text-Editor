@@ -40,9 +40,7 @@ public class ARE_ToolItem_AlignmentLeft extends ARE_ToolItem_Abstract {
         }
         if (mToolItemView == null) {
             ImageView imageView = new ImageView(context);
-            int size = Util.getPixelByDp(context, 40);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
-            imageView.setLayoutParams(params);
+            setIconStyle(context, imageView);
             imageView.setImageResource(R.drawable.alignleft);
             imageView.bringToFront();
             mToolItemView = imageView;

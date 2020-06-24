@@ -26,14 +26,15 @@ public class ColorPickerWindow extends PopupWindow {
         mColorPickerListener = colorPickerListener;
         this.colorPickerView = inflateContentView();
         this.setContentView(this.colorPickerView);
-        int[] wh = Util.getScreenWidthAndHeight(context);
-        this.setWidth(wh[0]);
+        this.setWidth(context.getResources().getDimensionPixelSize(R.dimen.colorPickerWidth));
         int h = Util.getPixelByDp(context, 50);
         this.setHeight(h);
         this.setBackgroundDrawable(new BitmapDrawable());
         this.setOutsideTouchable(true);
         this.setFocusable(true);
+        setTouchModal(true);
         this.setupListeners();
+
 //        this.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_UNCHANGED
 //                | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
     }

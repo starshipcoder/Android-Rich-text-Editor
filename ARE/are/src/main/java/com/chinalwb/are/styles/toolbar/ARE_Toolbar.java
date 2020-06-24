@@ -374,8 +374,6 @@ public class ARE_Toolbar extends LinearLayout {
 
 		this.mColorPalette = this.findViewById(R.id.rteColorPalette);
 
-		this.mEmojiPanelContainer = this.findViewById(R.id.rteEmojiPanel);
-
 		this.mFontColorImageView = this.findViewById(R.id.rteFontColor);
 
 		this.mStrikethroughImageView = this.findViewById(R.id.rteStrikethrough);

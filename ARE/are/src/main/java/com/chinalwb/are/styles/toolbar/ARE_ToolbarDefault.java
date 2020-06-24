@@ -39,7 +39,7 @@ public class ARE_ToolbarDefault extends HorizontalScrollView implements IARE_Too
 
     public ARE_ToolbarDefault(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        this.mContext = (Activity) context;
+        this.mContext = context;
         initSelf();
     }
 

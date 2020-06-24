@@ -1,6 +1,7 @@
 package com.chinalwb.are.styles;
 
 import com.chinalwb.are.Constants;
+import com.chinalwb.are.R;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -16,8 +17,10 @@ public class ARE_Helper {
   public static void updateCheckStatus(IARE_Style areStyle, boolean checked) {
 	areStyle.setChecked(checked);
 	View imageView = areStyle.getImageView();
-    int color = checked ? Constants.CHECKED_COLOR : Constants.UNCHECKED_COLOR;
-    imageView.setBackgroundColor(color);
+      imageView.setBackgroundResource(R.drawable.bg_icon);
+//    int color = checked ? Constants.CHECKED_COLOR : Constants.UNCHECKED_COLOR;
+//    imageView.setBackgroundColor(color);
+      imageView.setSelected(checked);
   }
   
   

@@ -1,14 +1,15 @@
 package com.chinalwb.are.styles.toolitems;
 
+import android.content.Context;
 import android.content.Intent;
 import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.chinalwb.are.AREditText;
-import com.chinalwb.are.AREditor;
+import com.chinalwb.are.R;
 import com.chinalwb.are.Util;
-import com.chinalwb.are.spans.AreQuoteSpan;
 import com.chinalwb.are.styles.IARE_Style;
 import com.chinalwb.are.styles.toolbar.IARE_Toolbar;
 
@@ -52,6 +53,15 @@ public abstract class ARE_ToolItem_Abstract implements IARE_ToolItem {
         return mToolbar.getEditText();
     }
 
+    protected void setIconStyle(Context context, View view) {
+        int size = context.getResources().getDimensionPixelSize(R.dimen.iconSize);
+        int margin = context.getResources().getDimensionPixelSize(R.dimen.iconMargin);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
+        params.setMarginEnd(margin);
+        params.setMarginStart(margin);
+        view.setLayoutParams(params);
+        view.setBackgroundResource(R.drawable.bg_icon);
+    }
 
 
     protected <T> void printSpans(Class<T> clazz) {

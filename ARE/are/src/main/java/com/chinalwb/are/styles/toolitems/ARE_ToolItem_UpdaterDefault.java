@@ -2,6 +2,7 @@ package com.chinalwb.are.styles.toolitems;
 
 import android.view.View;
 
+import com.chinalwb.are.R;
 import com.chinalwb.are.styles.IARE_Style;
 
 /**
@@ -11,14 +12,8 @@ public class ARE_ToolItem_UpdaterDefault implements IARE_ToolItem_Updater {
 
     private IARE_ToolItem mToolItem;
 
-    private int mCheckedColor;
-
-    private int mUncheckedColor;
-
     public ARE_ToolItem_UpdaterDefault(IARE_ToolItem toolItem, int checkedColor, int uncheckedColor) {
         mToolItem = toolItem;
-        mCheckedColor = checkedColor;
-        mUncheckedColor = uncheckedColor;
     }
 
     @Override
@@ -26,7 +21,8 @@ public class ARE_ToolItem_UpdaterDefault implements IARE_ToolItem_Updater {
         IARE_Style areStyle = mToolItem.getStyle();
         areStyle.setChecked(checked);
         View view = mToolItem.getView(null);
-        int color = checked ? mCheckedColor : mUncheckedColor;
-        view.setBackgroundColor(color);
+        view.setBackgroundResource(R.drawable.bg_icon);
+
+        view.setSelected(checked);
     }
 }

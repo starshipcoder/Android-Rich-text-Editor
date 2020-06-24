@@ -61,7 +61,7 @@ public class ARE_Style_FontColor extends ARE_ABS_Dynamic_Style<AreForegroundColo
         if (mColorPickerWindow == null) {
             mColorPickerWindow = new ColorPickerWindow(mContext, this);
         }
-        int yOff = Util.getPixelByDp(mContext, -5);
+        int yOff = Util.getPixelByDp(mContext, 20);
         mColorPickerWindow.showAsDropDown(mFontColorImageView, 0, yOff);
     }
 

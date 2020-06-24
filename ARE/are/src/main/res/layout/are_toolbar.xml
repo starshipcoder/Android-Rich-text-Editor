@@ -36,6 +36,8 @@
                 android:padding="5dp"
                 android:src="@drawable/fontsize"
                 android:visibility="visible"
+                android:background="@drawable/bg_icon"
+                android:layout_margin="10dp"
                 />
 
             <ImageView
@@ -45,6 +47,8 @@
                 android:padding="5dp"
                 android:src="@drawable/fontface"
                 android:visibility="gone"
+                android:background="@drawable/bg_icon"
+                android:layout_margin="10dp"
                 />
 
             <ImageView
@@ -52,35 +56,45 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/ic_baseline_format_bold_24" />
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_baseline_format_bold_24"
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteItalic"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/ic_baseline_format_italic_24" />
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_baseline_format_italic_24"
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteUnderline"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_margin="4dp"
                 android:padding="5dp"
-                android:src="@drawable/ic_baseline_format_underlined_24" />
+                android:src="@drawable/ic_baseline_format_underlined_24"
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteStrikethrough"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_margin="4dp"
                 android:padding="5dp"
-                android:src="@drawable/ic_baseline_format_strikethrough_24" />
+                android:src="@drawable/ic_baseline_format_strikethrough_24"
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteHr"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/hr" />
+                android:layout_margin="4dp"
+                android:src="@drawable/hr"
+                android:background="@drawable/bg_icon"/>
 
 
             <ImageView
@@ -88,21 +102,27 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/subscript" />
+                android:layout_margin="4dp"
+                android:src="@drawable/subscript"
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteSuperscript"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_margin="4dp"
                 android:padding="5dp"
-                android:src="@drawable/superscript" />
+                android:src="@drawable/superscript"
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteQuote"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_margin="4dp"
                 android:padding="5dp"
-                android:src="@drawable/quote" />
+                android:src="@drawable/quote"
+                android:background="@drawable/bg_icon"/>
 
 
             <ImageView
@@ -110,7 +130,8 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/foregroundcolor" />
+                android:src="@drawable/foregroundcolor"
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteBackground"
@@ -118,7 +139,7 @@
                 android:layout_height="40dp"
                 android:padding="5dp"
                 android:src="@drawable/background"
-                />
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteLink"
@@ -126,21 +147,23 @@
                 android:layout_height="40dp"
                 android:padding="5dp"
                 android:src="@drawable/ic_insert_link_black_48dp"
-                />
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteListNumber"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/listnumber" />
+                android:src="@drawable/listnumber"
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteListBullet"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/listbullet" />
+                android:src="@drawable/listbullet"
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteIndentRight"
@@ -149,6 +172,7 @@
                 android:padding="5dp"
                 android:src="@drawable/indentright"
                 android:visibility="gone"
+                android:background="@drawable/bg_icon"
                  />
 
             <ImageView
@@ -158,6 +182,7 @@
                 android:padding="5dp"
                 android:src="@drawable/indentleft"
                 android:visibility="gone"
+                android:background="@drawable/bg_icon"
                 />
 
             <ImageView
@@ -165,28 +190,32 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/alignleft" />
+                android:src="@drawable/alignleft"
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteAlignCenter"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/aligncenter" />
+                android:src="@drawable/aligncenter"
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteAlignRight"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/alignright" />
+                android:src="@drawable/alignright"
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteInsertImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/image" />
+                android:src="@drawable/image"
+                android:background="@drawable/bg_icon"/>
 
             <ImageView
                 android:id="@+id/rteInsertVideo"
@@ -194,6 +223,7 @@
                 android:layout_height="40dp"
                 android:padding="5dp"
                 android:src="@drawable/video"
+                android:background="@drawable/bg_icon"
                 />
 
             <ImageView
@@ -202,17 +232,8 @@
                 android:layout_height="40dp"
                 android:padding="5dp"
                 android:src="@drawable/at"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:background="@drawable/bg_icon"/>
         </LinearLayout>
     </HorizontalScrollView>
-    <LinearLayout
-        android:id="@+id/rteEmojiPanel"
-        android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:visibility="gone"
-        android:gravity="center"
-        android:paddingTop="10dp"
-        android:orientation="horizontal">
-
-    </LinearLayout>
 </merge>
