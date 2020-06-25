@@ -2,9 +2,11 @@ package com.chinalwb.are.styles.toolitems;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.chinalwb.are.AREditText;
@@ -60,6 +62,19 @@ public abstract class ARE_ToolItem_Abstract implements IARE_ToolItem {
         params.setMarginEnd(margin);
         params.setMarginStart(margin);
         view.setLayoutParams(params);
+        ColorStateList myColorStateList = new ColorStateList(
+                new int[][]{
+                        new int[]{android.R.attr.state_selected},
+                        new int[]{android.R.attr.state_pressed},
+                        new int[]{}
+                },
+                new int[] {
+                        context.getResources().getColor(android.R.color.white),
+                        context.getResources().getColor(android.R.color.white),
+                        context.getResources().getColor(android.R.color.black)
+                }
+        );
+        ((ImageView)view).setImageTintList(myColorStateList);
         view.setBackgroundResource(R.drawable.bg_icon);
     }
 

@@ -58,6 +58,7 @@
                 android:padding="5dp"
                 android:layout_margin="10dp"
                 android:src="@drawable/ic_baseline_format_bold_24"
+                android:tint="@drawable/tint_selector"
                 android:background="@drawable/bg_icon"/>
 
             <ImageView
@@ -67,6 +68,7 @@
                 android:padding="5dp"
                 android:layout_margin="10dp"
                 android:src="@drawable/ic_baseline_format_italic_24"
+                android:tint="@drawable/tint_selector"
                 android:background="@drawable/bg_icon"/>
 
             <ImageView
@@ -76,6 +78,7 @@
                 android:layout_margin="4dp"
                 android:padding="5dp"
                 android:src="@drawable/ic_baseline_format_underlined_24"
+                android:tint="@drawable/tint_selector"
                 android:background="@drawable/bg_icon"/>
 
             <ImageView
@@ -85,6 +88,7 @@
                 android:layout_margin="4dp"
                 android:padding="5dp"
                 android:src="@drawable/ic_baseline_format_strikethrough_24"
+                android:tint="@drawable/tint_selector"
                 android:background="@drawable/bg_icon"/>
 
             <ImageView
@@ -130,7 +134,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="5dp"
-                android:src="@drawable/foregroundcolor"
+                android:src="@drawable/ic_baseline_color_lens_24"
                 android:background="@drawable/bg_icon"/>
 
             <ImageView

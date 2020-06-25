@@ -32,4 +32,7 @@
         <item>#000000</item>
         <item>#0000FF</item>
     </array>
+
+    <color name="bg_tool_format_text">#4f6f82</color>
+
 </resources>
