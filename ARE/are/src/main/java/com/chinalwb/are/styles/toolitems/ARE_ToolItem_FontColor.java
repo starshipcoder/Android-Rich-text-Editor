@@ -4,11 +4,9 @@ import android.content.Context;
 import android.text.Editable;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.chinalwb.are.AREditText;
 import com.chinalwb.are.R;
-import com.chinalwb.are.Util;
 import com.chinalwb.are.colorpicker.ColorPickerView;
 import com.chinalwb.are.spans.AreForegroundColorSpan;
 import com.chinalwb.are.styles.IARE_Style;
@@ -41,13 +39,7 @@ public class ARE_ToolItem_FontColor extends ARE_ToolItem_Abstract {
             return mToolItemView;
         }
         if (mToolItemView == null) {
-            ImageView imageView = new ImageView(context);
-            int size = Util.getPixelByDp(context, 35);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
-            imageView.setLayoutParams(params);
-            imageView.setImageResource(R.drawable.foregroundcolor);
-            imageView.bringToFront();
-            mToolItemView = imageView;
+            mToolItemView = createIcon(context, R.drawable.foregroundcolor);
         }
 
         return mToolItemView;
