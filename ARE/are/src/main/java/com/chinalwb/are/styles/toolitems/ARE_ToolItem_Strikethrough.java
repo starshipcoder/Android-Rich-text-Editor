@@ -1,10 +1,8 @@
 package com.chinalwb.are.styles.toolitems;
 
-import android.content.Context;
 import android.text.Editable;
 import android.text.style.CharacterStyle;
 import android.text.style.StrikethroughSpan;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
@@ -12,11 +10,21 @@ import com.chinalwb.are.R;
 import com.chinalwb.are.styles.IARE_Style;
 import com.chinalwb.are.styles.toolitems.styles.ARE_Style_Strikethrough;
 
+import androidx.annotation.DrawableRes;
+
 /**
  * Created by wliu on 13/08/2018.
  */
 
 public class ARE_ToolItem_Strikethrough extends ARE_ToolItem_Abstract {
+
+    public ARE_ToolItem_Strikethrough() {
+        mIcon = R.drawable.strikethrough;
+    }
+
+    public ARE_ToolItem_Strikethrough(@DrawableRes int icon) {
+        mIcon = icon;
+    }
 
     @Override
     public IARE_ToolItem_Updater getToolItemUpdater() {
@@ -35,18 +43,6 @@ public class ARE_ToolItem_Strikethrough extends ARE_ToolItem_Abstract {
             mStyle = new ARE_Style_Strikethrough(editText, (ImageView) mToolItemView, toolItemUpdater);
         }
         return mStyle;
-    }
-
-    @Override
-    public View getView(Context context) {
-        if (null == context) {
-            return mToolItemView;
-        }
-        if (mToolItemView == null) {
-            mToolItemView = createIcon(context, R.drawable.strikethrough);
-        }
-
-        return mToolItemView;
     }
 
     @Override

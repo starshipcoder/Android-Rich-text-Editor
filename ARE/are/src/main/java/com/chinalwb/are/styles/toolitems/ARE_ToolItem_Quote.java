@@ -1,9 +1,7 @@
 package com.chinalwb.are.styles.toolitems;
 
-import android.content.Context;
 import android.text.Editable;
 import android.text.style.QuoteSpan;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
@@ -12,11 +10,21 @@ import com.chinalwb.are.spans.AreQuoteSpan;
 import com.chinalwb.are.styles.IARE_Style;
 import com.chinalwb.are.styles.toolitems.styles.ARE_Style_Quote;
 
+import androidx.annotation.DrawableRes;
+
 /**
  * Created by wliu on 13/08/2018.
  */
 
 public class ARE_ToolItem_Quote extends ARE_ToolItem_Abstract {
+
+    public ARE_ToolItem_Quote() {
+        mIcon = R.drawable.quote;
+    }
+
+    public ARE_ToolItem_Quote(@DrawableRes int icon) {
+        mIcon = icon;
+    }
 
     @Override
     public IARE_ToolItem_Updater getToolItemUpdater() {
@@ -35,18 +43,6 @@ public class ARE_ToolItem_Quote extends ARE_ToolItem_Abstract {
             mStyle = new ARE_Style_Quote(editText, (ImageView) mToolItemView, toolItemUpdater);
         }
         return mStyle;
-    }
-
-    @Override
-    public View getView(Context context) {
-        if (null == context) {
-            return mToolItemView;
-        }
-        if (mToolItemView == null) {
-            mToolItemView = createIcon(context, R.drawable.quote);
-        }
-
-        return mToolItemView;
     }
 
     @Override

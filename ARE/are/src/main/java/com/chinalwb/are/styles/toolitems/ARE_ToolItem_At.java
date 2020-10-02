@@ -6,9 +6,12 @@ import android.content.Intent;
 import android.view.View;
 
 import com.chinalwb.are.AREditText;
+import com.chinalwb.are.R;
 import com.chinalwb.are.models.AtItem;
 import com.chinalwb.are.styles.IARE_Style;
 import com.chinalwb.are.styles.toolitems.styles.ARE_Style_At;
+
+import androidx.annotation.DrawableRes;
 
 /**
  * Created by wliu on 13/08/2018.
@@ -31,7 +34,12 @@ public class ARE_ToolItem_At extends ARE_ToolItem_Abstract {
     }
 
     @Override
-    public View getView(Context context) {
+    public int getIcon() {
+        return 0;
+    }
+
+    @Override
+    public View getView(Context context, @DrawableRes int iconRes) {
         return null;
     }
 

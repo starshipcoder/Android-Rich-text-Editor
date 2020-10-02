@@ -1,9 +1,7 @@
 package com.chinalwb.are.styles.toolitems;
 
-import android.content.Context;
 import android.text.Editable;
 import android.text.style.BackgroundColorSpan;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
@@ -12,7 +10,17 @@ import com.chinalwb.are.R;
 import com.chinalwb.are.styles.IARE_Style;
 import com.chinalwb.are.styles.toolitems.styles.ARE_Style_BackgroundColor;
 
+import androidx.annotation.DrawableRes;
+
 public class ARE_ToolItem_BackgroundColor extends ARE_ToolItem_Abstract {
+
+    public ARE_ToolItem_BackgroundColor() {
+        mIcon = R.drawable.background;
+    }
+
+    public ARE_ToolItem_BackgroundColor(@DrawableRes int icon) {
+        mIcon = icon;
+    }
 
     @Override
     public IARE_ToolItem_Updater getToolItemUpdater() {
@@ -31,18 +39,6 @@ public class ARE_ToolItem_BackgroundColor extends ARE_ToolItem_Abstract {
             mStyle = new ARE_Style_BackgroundColor(editText, (ImageView) mToolItemView, getToolItemUpdater(), Constants.COLOR_BACKGROUND_DEFAULT);
         }
         return mStyle;
-    }
-
-    @Override
-    public View getView(Context context) {
-        if (null == context) {
-            return mToolItemView;
-        }
-        if (mToolItemView == null) {
-            mToolItemView = createIcon(context, R.drawable.background);
-        }
-
-        return mToolItemView;
     }
 
     @Override

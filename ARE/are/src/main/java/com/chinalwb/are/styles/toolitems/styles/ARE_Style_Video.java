@@ -14,7 +14,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import androidx.loader.content.CursorLoader;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.Spannable;
@@ -35,6 +34,8 @@ import com.chinalwb.are.spans.AreVideoSpan;
 import com.chinalwb.are.strategies.VideoStrategy;
 import com.chinalwb.are.styles.IARE_Style;
 import com.chinalwb.are.styles.toolbar.ARE_Toolbar;
+
+import androidx.loader.content.CursorLoader;
 
 public class ARE_Style_Video implements IARE_Style {
 

@@ -27,7 +27,7 @@ public class ARE_ToolItem_UpdaterDefault implements IARE_ToolItem_Updater {
     public void onCheckStatusUpdate(boolean checked) {
         IARE_Style areStyle = mToolItem.getStyle();
         areStyle.setChecked(checked);
-        View view = mToolItem.getView(null);
+        View view = mToolItem.getView(null, 0);
         view.setBackgroundResource(mIconBackground);
         view.setSelected(checked);
     }

@@ -12,7 +12,6 @@ import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
 import com.chinalwb.are.demo.helpers.DemoImageStrategy;
-import com.chinalwb.are.demo.toolitems.ARE_ToolItem_MyBold;
 import com.chinalwb.are.demo.toolitems.ARE_ToolItem_Youtube;
 import com.chinalwb.are.strategies.ImageStrategy;
 import com.chinalwb.are.strategies.VideoStrategy;
@@ -23,6 +22,7 @@ import com.chinalwb.are.styles.toolitems.ARE_ToolItem_AlignmentLeft;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_AlignmentRight;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_At;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_BackgroundColor;
+import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Bold;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_FontColor;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_FontSize;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Hr;
@@ -84,7 +84,7 @@ public class ARE_DefaultToolbarActivity extends AppCompatActivity {
 
     private void initToolbar() {
         mToolbar = this.findViewById(R.id.areToolbar);
-        IARE_ToolItem bold = new ARE_ToolItem_MyBold();
+        IARE_ToolItem bold = new ARE_ToolItem_Bold(R.drawable.my_bold);
         IARE_ToolItem youtube = new ARE_ToolItem_Youtube();
         IARE_ToolItem italic = new ARE_ToolItem_Italic();
         IARE_ToolItem underline = new ARE_ToolItem_Underline();

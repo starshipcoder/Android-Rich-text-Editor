@@ -1,7 +1,5 @@
 package com.chinalwb.are.styles.toolitems;
 
-import android.content.Context;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
@@ -9,7 +7,18 @@ import com.chinalwb.are.R;
 import com.chinalwb.are.styles.IARE_Style;
 import com.chinalwb.are.styles.toolitems.styles.ARE_Style_FontSize;
 
+import androidx.annotation.DrawableRes;
+
 public class ARE_ToolItem_FontSize extends ARE_ToolItem_Abstract {
+
+    public ARE_ToolItem_FontSize() {
+        mIcon = R.drawable.fontsize;
+    }
+
+    public ARE_ToolItem_FontSize(@DrawableRes int icon) {
+        mIcon = icon;
+    }
+
     @Override
     public IARE_Style getStyle() {
         if (mStyle == null) {
@@ -17,18 +26,6 @@ public class ARE_ToolItem_FontSize extends ARE_ToolItem_Abstract {
             mStyle = new ARE_Style_FontSize(editText, (ImageView) mToolItemView);
         }
         return mStyle;
-    }
-
-    @Override
-    public View getView(Context context) {
-        if (null == context) {
-            return mToolItemView;
-        }
-        if (mToolItemView == null) {
-            mToolItemView = createIcon(context, R.drawable.fontsize);
-        }
-
-        return mToolItemView;
     }
 
     @Override

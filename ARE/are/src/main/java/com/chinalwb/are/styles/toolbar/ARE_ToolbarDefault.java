@@ -55,7 +55,7 @@ public class ARE_ToolbarDefault extends HorizontalScrollView implements IARE_Too
     public void addToolbarItem(IARE_ToolItem toolbarItem) {
         toolbarItem.setToolbar(this, mIconBackground, mIconSize, mIconMargin);
         mToolItems.add(toolbarItem);
-        View view = toolbarItem.getView(mContext);
+        View view = toolbarItem.getView(mContext, toolbarItem.getIcon());
         if (view != null) {
             mContainer.addView(view);
         }

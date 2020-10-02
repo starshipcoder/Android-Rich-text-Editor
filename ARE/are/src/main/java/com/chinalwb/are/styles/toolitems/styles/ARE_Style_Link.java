@@ -3,7 +3,6 @@ package com.chinalwb.are.styles.toolitems.styles;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.DialogInterface;
-import androidx.appcompat.app.AlertDialog;
 import android.text.Editable;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -16,6 +15,8 @@ import com.chinalwb.are.AREditText;
 import com.chinalwb.are.R;
 import com.chinalwb.are.spans.AreUrlSpan;
 import com.chinalwb.are.styles.ARE_ABS_FreeStyle;
+
+import androidx.appcompat.app.AlertDialog;
 
 
 /**

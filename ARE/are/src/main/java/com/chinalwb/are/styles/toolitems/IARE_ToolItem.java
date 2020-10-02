@@ -24,7 +24,9 @@ public interface IARE_ToolItem {
     /**
      * Each tool item has a view. If context is null, return the generated view.
      */
-    public View getView(Context context);
+    public View getView(Context context, @DrawableRes int iconRes);
+
+    @DrawableRes int getIcon();
 
     /**
      * Selection changed call back. Update tool item checked status

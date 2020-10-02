@@ -30,6 +30,9 @@ public abstract class ARE_ToolItem_Abstract implements IARE_ToolItem {
     protected IARE_ToolItem_Updater mToolItemUpdater;
 
     private IARE_Toolbar mToolbar;
+
+    @DrawableRes
+    protected int mIcon;
     @DrawableRes
     protected int mIconBackground;
     protected int mIconSize;
@@ -49,6 +52,11 @@ public abstract class ARE_ToolItem_Abstract implements IARE_ToolItem {
     }
 
     @Override
+    public int getIcon() {
+        return mIcon;
+    }
+
+    @Override
     public void setToolItemUpdater(IARE_ToolItem_Updater toolItemUpdater) {
         mToolItemUpdater = toolItemUpdater;
     }
@@ -62,6 +70,19 @@ public abstract class ARE_ToolItem_Abstract implements IARE_ToolItem {
 
     public AREditText getEditText() {
         return mToolbar.getEditText();
+    }
+
+
+    @Override
+    public View getView(Context context, @DrawableRes int iconRes) {
+        if (null == context) {
+            return mToolItemView;
+        }
+        if (mToolItemView == null) {
+            mToolItemView = createIcon(context, iconRes);
+        }
+
+        return mToolItemView;
     }
 
     protected ImageView createIcon(@NonNull Context context, @DrawableRes int resIcon) {

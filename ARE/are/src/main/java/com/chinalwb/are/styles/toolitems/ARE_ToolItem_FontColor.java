@@ -1,8 +1,6 @@
 package com.chinalwb.are.styles.toolitems;
 
-import android.content.Context;
 import android.text.Editable;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
@@ -12,16 +10,30 @@ import com.chinalwb.are.spans.AreForegroundColorSpan;
 import com.chinalwb.are.styles.IARE_Style;
 import com.chinalwb.are.styles.toolitems.styles.ARE_Style_FontColor;
 
+import androidx.annotation.DrawableRes;
+
 public class ARE_ToolItem_FontColor extends ARE_ToolItem_Abstract {
 
     private final ColorPickerView colorPickerView;
 
     public ARE_ToolItem_FontColor() {
         this.colorPickerView = null;
+        mIcon = R.drawable.foregroundcolor;
     }
 
     public ARE_ToolItem_FontColor(ColorPickerView colorPickerView) {
         this.colorPickerView = colorPickerView;
+        mIcon = R.drawable.foregroundcolor;
+    }
+
+    public ARE_ToolItem_FontColor(@DrawableRes int icon) {
+        this.colorPickerView = null;
+        mIcon = icon;
+    }
+
+    public ARE_ToolItem_FontColor(ColorPickerView colorPickerView, @DrawableRes int icon) {
+        this.colorPickerView = colorPickerView;
+        mIcon = icon;
     }
 
     @Override
@@ -31,18 +43,6 @@ public class ARE_ToolItem_FontColor extends ARE_ToolItem_Abstract {
             mStyle = new ARE_Style_FontColor(editText, (ImageView) mToolItemView, colorPickerView);
         }
         return mStyle;
-    }
-
-    @Override
-    public View getView(Context context) {
-        if (null == context) {
-            return mToolItemView;
-        }
-        if (mToolItemView == null) {
-            mToolItemView = createIcon(context, R.drawable.foregroundcolor);
-        }
-
-        return mToolItemView;
     }
 
     @Override
